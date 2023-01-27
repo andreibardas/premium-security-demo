@@ -8,6 +8,9 @@ const { height, width } = Dimensions.get('screen');
 import materialTheme from '../constants/Theme';
 import Images from '../constants/Images';
 
+const OnboardingImage = require('../assets/images/onboarding.png');
+
+
 export default class Onboarding extends React.Component {
   render() {
     const { navigation } = this.props;
@@ -17,29 +20,34 @@ export default class Onboarding extends React.Component {
         <StatusBar barStyle="light-content" />
         <Block flex center>
           <Image
-            source={{ uri: Images.Onboarding }}
-            style={{ height: height / 1.8, width, zIndex: 1 }}
+            source={OnboardingImage}
+            style={{ height: height / 2, width, zIndex: 1 }}
           />
         </Block>
-        <Block flex={1.3} space="between" style={styles.padded}>
+        <Block flex={1.6} space="between" style={styles.padded}>
           <Block style={{ paddingTop: 50, position: 'relative' }}>
             <LinearGradient
               style={styles.gradient}
               colors={['rgba(0,0,0,0)', 'rgba(0,0,0,1)']} />
             <Block style={{ marginBottom: theme.SIZES.BASE / 2, paddingHorizontal: theme.SIZES.BASE * 2, zIndex: 3 }}>
               <Block>
-                <Text color="white" size={60}>Material</Text>
+                <Text color="white" size={60}>Premium</Text>
               </Block>
               <Block row>
-                <Text color="white" size={60}>Kit</Text>
+                <Text color="white" size={60}>Security</Text>
                 <Block middle style={styles.pro}>
-                  <Text size={16} color="white">PRO</Text>
+                  <Text size={16} color="white">Demo</Text>
                 </Block>
               </Block>
             </Block>
             <Block style={{ paddingHorizontal: theme.SIZES.BASE * 2,  zIndex: 3 }}>
-              <Text size={16} color='rgba(255,255,255,0.6)'>
-                Fully coded React Native components.
+              <Text size={14} color='rgba(255,255,255,0.6)'>
+                Această aplicație reprezintă un Demo creat de echipa de dezvoltare Yuriesoft.
+              </Text>
+            </Block>
+            <Block style={{ paddingHorizontal: theme.SIZES.BASE * 2,  zIndex: 3, }}>
+              <Text size={14} color='rgba(255,255,255,0.6)'>
+                Datele introduse în aplicație nu sunt salvate iar aplicația nu este destinată uzului comercial.
               </Text>
             </Block>
           </Block>
@@ -49,7 +57,7 @@ export default class Onboarding extends React.Component {
               style={styles.button}
               color={materialTheme.COLORS.BUTTON_COLOR}
               onPress={() => navigation.navigate('App')}>
-              GET STARTED
+              ÎNCEPE
             </Button>
           </Block>
         </Block>
