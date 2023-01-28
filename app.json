@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "rn-material-kit-pro",
-    "description": "React Native - Material Kit PRO",
-    "slug": "rn-material-kit-pro",
+    "name": "central-monitoring-system-demo",
+    "description": "Central Monitoring System Demo",
+    "slug": "central-monitoring-system",
     "privacy": "unlisted",
     "platforms": [
       "ios",
@@ -27,7 +27,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "9c17cd76-7ddf-444a-992d-6fff6dbab246"
+        "projectId": "6fa54786-b54f-476e-974b-1bbffc6b1496"
       }
     },
     "android": {

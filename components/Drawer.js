@@ -3,14 +3,23 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
 import Icon from "./Icon";
+import {createIconSetFromIcoMoon} from "@expo/vector-icons";
+import GalioConfig from "../assets/fonts/galioExtra.json";
+
+
+const MaterialCommunityIcons = createIconSetFromIcoMoon(GalioConfig, 'MaterialCommunityIcons');
+
+
 import materialTheme from "../constants/Theme";
+
+
 
 class DrawerItem extends React.Component {
   renderIcon = () => {
     const { title, focused } = this.props;
 
     switch (title) {
-      case "Home":
+      case "Obiectivul Meu":
         return (
           <Icon
             size={14}
@@ -19,12 +28,12 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Woman":
+      case "Control Securitate":
         return (
           <Icon
             size={16}
-            name="md-woman"
-            family="ionicon"
+            name="shield"
+            family="font-awesome"
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
@@ -55,7 +64,7 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Profile":
+      case "Profil":
         return (
           <Icon
             size={15}
@@ -64,7 +73,7 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Settings":
+      case "Setări":
         return (
           <Icon
             size={15}
@@ -108,8 +117,9 @@ class DrawerItem extends React.Component {
     const { title, focused, navigation } = this.props;
     return (
       <TouchableOpacity
-        style={{ height: 55 }}
+        // style={{ height: 105 }}
         onPress={() => navigation.navigate(title)}
+        style={{marginTop: 2}}
       >
         <Block
           flex
@@ -119,11 +129,11 @@ class DrawerItem extends React.Component {
             focused ? [styles.activeStyle, styles.shadow] : null
           ]}
         >
-          <Block middle flex={0.1} style={{ marginRight: 28 }}>
+          <Block middle  style={{ marginRight: 28 }}>
             {this.renderIcon()}
           </Block>
-          <Block flex={0.9}>
-            <Text size={15} color={focused ? "white" : "black"}>
+          <Block >
+            <Text size={14} color={focused ? "white" : "black"}>
               {title}
             </Text>
           </Block>

@@ -133,7 +133,7 @@ export default class Product extends React.Component {
                   <Block row>
                     <Image source={{ uri: Images.Profile }} style={styles.avatar} />
                     <Block>
-                      <Text size={14}>Rachel Brown</Text>
+                      <Text size={14}>Mega Image Mosilor</Text>
                       <Text size={14} muted>Pro Seller</Text>
                     </Block>
                   </Block>

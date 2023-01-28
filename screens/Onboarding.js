@@ -7,6 +7,7 @@ const { height, width } = Dimensions.get('screen');
 
 import materialTheme from '../constants/Theme';
 import Images from '../constants/Images';
+import {normalize} from "../utils/responsive";
 
 const OnboardingImage = require('../assets/images/onboarding.png');
 
@@ -17,26 +18,30 @@ export default class Onboarding extends React.Component {
 
     return (
       <Block flex style={styles.container}>
+        {/*<Button onPress={() => alert(width)}>alert</Button>*/}
         <StatusBar barStyle="light-content" />
-        <Block flex center>
+        <Block flex={2} center>
           <Image
             source={OnboardingImage}
-            style={{ height: height / 2, width, zIndex: 1 }}
+            style={{ height: height / 2.3, width, zIndex: 1 }}
           />
         </Block>
-        <Block flex={1.6} space="between" style={styles.padded}>
+        <Block flex={4} space="between" style={styles.padded}>
           <Block style={{ paddingTop: 50, position: 'relative' }}>
             <LinearGradient
               style={styles.gradient}
               colors={['rgba(0,0,0,0)', 'rgba(0,0,0,1)']} />
             <Block style={{ marginBottom: theme.SIZES.BASE / 2, paddingHorizontal: theme.SIZES.BASE * 2, zIndex: 3 }}>
               <Block>
-                <Text color="white" size={60}>Premium</Text>
+                <Text color="white" size={48}>Central</Text>
+              </Block>
+              <Block>
+                <Text color="white" size={48}>Monitoring</Text>
               </Block>
               <Block row>
-                <Text color="white" size={60}>Security</Text>
+                <Text color="white" size={48}>System</Text>
                 <Block middle style={styles.pro}>
-                  <Text size={16} color="white">Demo</Text>
+                  <Text size={15} color="white">Demo</Text>
                 </Block>
               </Block>
             </Block>
@@ -56,7 +61,7 @@ export default class Onboarding extends React.Component {
               shadowless
               style={styles.button}
               color={materialTheme.COLORS.BUTTON_COLOR}
-              onPress={() => navigation.navigate('App')}>
+              onPress={() => navigation.navigate('SignIn')}>
               ÎNCEPE
             </Button>
           </Block>

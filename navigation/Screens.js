@@ -39,8 +39,8 @@ const Drawer = createDrawerNavigator();
 
 const profile = {
   avatar: Images.Profile,
-  name: "Rachel Brown",
-  type: "Seller",
+  name: "Mega Image Mosilor",
+  type: "Calea Moșilor 207, București 030167",
   plan: "Pro",
   rating: 4.8,
 };
@@ -48,20 +48,20 @@ const profile = {
 function ProfileStack(props) {
   return (
     <Stack.Navigator
-      initialRouteName="Profile"
+      initialRouteName="Profil"
       screenOptions={{
         mode: "card",
         headerShown: "screen",
       }}
     >
       <Stack.Screen
-        name="Profile"
+        name="Profil"
         component={ProfileScreen}
         options={{
           header: ({ navigation, scene }) => (
             <Header
               transparent
-              title="Profile"
+              title="Profil"
               scene={scene}
               navigation={navigation}
             />
@@ -76,7 +76,7 @@ function ProfileStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               scene={scene}
               navigation={navigation}
             />
@@ -99,18 +99,18 @@ function ProfileStack(props) {
 function SettingsStack(props) {
   return (
     <Stack.Navigator
-      initialRouteName="Settings"
+      initialRouteName="Setări"
       screenOptions={{
         mode: "card",
         headerShown: "screen",
       }}
     >
       <Stack.Screen
-        name="Settings"
+        name="Setări"
         component={SettingsScreen}
         options={{
           header: ({ navigation, scene }) => (
-            <Header title="Settings" scene={scene} navigation={navigation} />
+            <Header title="Setări" scene={scene} navigation={navigation} />
           ),
         }}
       />
@@ -121,7 +121,7 @@ function SettingsStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Agreement"
+              title="Acord Utilizator"
               scene={scene}
               navigation={navigation}
             />
@@ -135,7 +135,7 @@ function SettingsStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Privacy"
+              title="Confidențialitate"
               scene={scene}
               navigation={navigation}
             />
@@ -149,7 +149,7 @@ function SettingsStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="About us"
+              title="Despre"
               scene={scene}
               navigation={navigation}
             />
@@ -177,7 +177,7 @@ function SettingsStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               navigation={navigation}
               scene={scene}
             />
@@ -239,6 +239,13 @@ export default function OnboardingStack(props) {
           headerTransparent: true,
         }}
       />
+        <Stack.Screen
+            name="SignIn"
+            component={SignInScreen}
+            // option={{
+            //     headerTransparent: true,
+            // }}
+        />
       <Stack.Screen name="App" component={AppStack} />
     </Stack.Navigator>
   );
@@ -253,14 +260,14 @@ function WomanStack(props) {
       }}
     >
       <Stack.Screen
-        name="Woman"
+        name="Control Securitate"
         component={WomanScreen}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              search
-              options
-              title="Woman"
+              // search
+              // options
+              title="Control Securitate"
               navigation={navigation}
               scene={scene}
             />
@@ -358,7 +365,7 @@ function WomanStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               navigation={navigation}
               scene={scene}
             />
@@ -501,7 +508,7 @@ function ManStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               navigation={navigation}
               scene={scene}
             />
@@ -649,7 +656,7 @@ function KidsStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               navigation={navigation}
               scene={scene}
             />
@@ -797,7 +804,7 @@ function NewCollectionStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               navigation={navigation}
               scene={scene}
             />
@@ -840,15 +847,15 @@ function HomeStack(props) {
       }}
     >
       <Stack.Screen
-        name="Home"
+        name="Obiectivul Meu"
         headerShown={false}
         component={HomeScreen}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              search
-              options
-              title="Home"
+              // search
+              // options
+              title="Obiectivul Meu"
               navigation={navigation}
               scene={scene}
             />
@@ -946,7 +953,7 @@ function HomeStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               back
-              title="Rachel Brown"
+              title="Mega Image Mosilor"
               navigation={navigation}
               scene={scene}
             />
@@ -1010,10 +1017,10 @@ function AppStack(props) {
           fontWeight: "normal",
         },
       }}
-      initialRouteName="Home"
+      initialRouteName="Obiectivul Meu"
     >
       <Drawer.Screen
-        name="Home"
+        name="Obiectivul Meu"
         component={HomeStack}
         options={{
           headerShown: false,
@@ -1028,7 +1035,7 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Woman"
+        name="Control Securitate"
         component={WomanStack}
         options={{
           headerShown: false,
@@ -1089,7 +1096,7 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Profile"
+        name="Profil"
         component={ProfileStack}
         options={{
           headerShown: false,
@@ -1104,7 +1111,7 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Settings"
+        name="Setări"
         component={SettingsStack}
         options={{
           headerShown: false,

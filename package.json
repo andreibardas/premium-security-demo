@@ -1,7 +1,7 @@
 {
-  "name": "rn-material-kit-pro",
+  "name": "central-monitoring-system-demo",
   "version": "1.8.0",
-  "description": "Material Kit PRO React Native. Coded by Creative Tim",
+  "description": "Central Monitoring System Demo",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
@@ -34,7 +34,11 @@
     "react-native-modal-dropdown": "git+https://github.com/siemiatj/react-native-modal-dropdown.git",
     "react-native-reanimated": "~2.8.0",
     "react-native-safe-area-context": "4.2.4",
-    "react-native-screens": "~3.11.1"
+    "react-native-screens": "~3.11.1",
+    "react-native-select-dropdown": "^3.2.1",
+    "react-native-svg": "^9.13.3",
+    "react-native-svg-charts": "^5.4.0",
+    "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~9.1.0",

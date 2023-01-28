@@ -13,7 +13,7 @@ export default class Settings extends React.Component {
     const {navigate} = this.props.navigation;
 
     switch(item.type) {
-      case 'switch': 
+      case 'switch':
         return (
           <Block row middle space="between" style={styles.rows}>
             <Text size={14}>{item.title}</Text>
@@ -26,7 +26,7 @@ export default class Settings extends React.Component {
             />
           </Block>
         );
-      case 'button': 
+      case 'button':
         return (
           <Block style={styles.rows}>
             <TouchableOpacity onPress={() => (item.id !== 'Payment' && item.id !== 'gift') && navigate(item.id)}>
@@ -43,25 +43,25 @@ export default class Settings extends React.Component {
 
   render() {
     const recommended = [
-      { title: "Use FaceID to sign in", id: "face", type: "switch" },
-      { title: "Auto-Lock security", id: "autolock", type: "switch" },
-      { title: "Notifications", id: "Notifications", type: "button" },
+      // { title: "Use FaceID to sign in", id: "face", type: "switch" },
+      { title: "Blocare Automată", id: "autolock", type: "switch" },
+      { title: "Notificări", id: "Notifications", type: "switch" },
     ];
 
     const payment = [
-      { title: "Manage Payment Options", id: "Payment", type: "button" },
-      { title: "Manage Gift Cards", id: "gift", type: "button" },
+      // { title: "Manage Payment Options", id: "Payment", type: "button" },
+      // { title: "Manage Gift Cards", id: "gift", type: "button" },
     ];
-    
+
     const privacy = [
-      { title: "User Agreement", id: "Agreement", type: "button" },
-      { title: "Privacy", id: "Privacy", type: "button" },
-      { title: "About", id: "About", type: "button" },
+      { title: "Acord Utilizator", id: "Agreement", type: "button" },
+      { title: "Confidențialitate", id: "Privacy", type: "button" },
+      { title: "Despre", id: "About", type: "button" },
     ];
 
     return (
       <View
-        
+
         style={styles.settings}>
         <FlatList
           data={recommended}
@@ -70,22 +70,22 @@ export default class Settings extends React.Component {
           ListHeaderComponent={
             <Block center style={styles.title}>
               <Text bold size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-                Recommended Settings
+                Setări Recomandate
               </Text>
               <Text size={12} color={materialTheme.COLORS.CAPTION}>
-                These are the most important settings
+                Acestea sunt cele mai importante setări
               </Text>
             </Block>
           }
         />
-        <Block center style={styles.title}>
-          <Text bold size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-            Payment Settings
-          </Text>
-          <Text size={12} color={materialTheme.COLORS.CAPTION}>
-            These are also important settings
-          </Text>
-        </Block>
+        {/*<Block center style={styles.title}>*/}
+        {/*  <Text bold size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>*/}
+        {/*    Payment Settings*/}
+        {/*  </Text>*/}
+        {/*  <Text size={12} color={materialTheme.COLORS.CAPTION}>*/}
+        {/*    These are also important settings*/}
+        {/*  </Text>*/}
+        {/*</Block>*/}
 
         <FlatList
           data={payment}
@@ -94,10 +94,10 @@ export default class Settings extends React.Component {
 
         <Block center style={styles.title}>
           <Text bold size={theme.SIZES.BASE} style={{ paddingBottom: 5 }}>
-            Privacy Settings
+            Setări Confidențialitate
           </Text>
           <Text size={12} color={materialTheme.COLORS.CAPTION}>
-            Third most important settings
+            Setări importante de confidențialitate
           </Text>
         </Block>
         <FlatList
@@ -106,7 +106,7 @@ export default class Settings extends React.Component {
           renderItem={this.renderItem}
         />
       </View>
-      
+
     );
   }
 }

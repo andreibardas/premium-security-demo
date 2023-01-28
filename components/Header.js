@@ -1,6 +1,6 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
-import { TouchableOpacity, StyleSheet, Platform, Dimensions, Keyboard } from 'react-native';
+import { TouchableOpacity, StyleSheet, Platform, Dimensions, Keyboard, View } from 'react-native';
 import { Button, Block, NavBar, Input, Text, theme } from 'galio-framework';
 
 import Icon from './Icon';
@@ -11,26 +11,25 @@ const { height, width } = Dimensions.get('window');
 const iPhoneX = () => Platform.OS === 'ios' && (height === 812 || width === 812 || height === 896 || width === 896);
 
 const ChatButton = ({isWhite, style, navigation}) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Chat')}>
-    <Icon
+  <Block style={[styles.button, style]} >
+    <Block
       family="GalioExtra"
-      size={16}
+      style={{width: 12}}
       name="chat-33"
       color={theme.COLORS[isWhite ? 'WHITE' : 'ICON']}
     />
-    <Block middle style={styles.notify} />
-  </TouchableOpacity>
+  </Block>
 );
 
 const BasketButton = ({isWhite, style, navigation}) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Cart')}>
+  <TouchableOpacity style={[styles.button, style]} onPress={() => alert("Funcționalitatea nu este implementată în versiunea Demo")}>
     <Icon
-      family="GalioExtra"
+      family="font-awesome"
       size={16}
-      name="basket-simple"
+      name="camera"
       color={theme.COLORS[isWhite ? 'WHITE' : 'ICON']}
     />
-    <Block middle style={styles.notify} />
+    {/*<Block middle style={styles.notify} />*/}
   </TouchableOpacity>
 );
 
@@ -51,7 +50,7 @@ class Header extends React.Component {
     if (back)
       navigation.goBack();
       else
-        navigation.openDrawer();
+      navigation.openDrawer();
     // return (back ? navigation.goBack() : navigation.openDrawer());
   }
 
@@ -62,7 +61,7 @@ class Header extends React.Component {
 
     if (title ===  'Title') {
       return ([
-        <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+        // <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
         <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
       ]);
     }
@@ -74,16 +73,20 @@ class Header extends React.Component {
       case 'Categories':
       case 'Category':
       case 'Deals':
-      case 'Home':
-      case 'Woman':
+      case 'Obiectivul Meu':
+      case 'Control Securitate':
+        return ([
+          <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+          <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
+        ]);
       case 'Man':
       case 'Kids':
       case 'NewCollection':
       case 'Notifications':
       case 'Privacy':
-      case 'Profile':
+      case 'Profil':
       case 'Search':
-      case 'Settings':
+      case 'Setări':
         return ([
           <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
           <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
@@ -136,7 +139,7 @@ class Header extends React.Component {
   renderTabs = () => {
     const { tabs, tabIndex, navigation } = this.props;
     const defaultTab = tabs && tabs[0] && tabs[0].id;
-    
+
     if (!tabs) return null;
 
     return (
@@ -166,14 +169,14 @@ class Header extends React.Component {
     // const { routeName } = navigation.state;
     // const { options } = scene.descriptor;
     // const routeName = scene.descriptor?.options.headerTitle ?? '';
-    const noShadow = ["Search", "Profile"].includes(title);
+    const noShadow = ["Search", "Profil"].includes(title);
     const headerStyles = [
       !noShadow ? styles.shadow : null,
       transparent ? { backgroundColor: 'rgba(0,0,0,0)' } : null,
     ];
 
     return (
-      <Block style={headerStyles}>
+      <Block style={headerStyles, {backgroundColor: "white"}}>
         <NavBar
           back={back}
           title={title}
@@ -185,6 +188,7 @@ class Header extends React.Component {
           leftIconName={back ? null : "navicon"}
           // leftIconFamily="font-awesome"
           leftIconColor={white ? theme.COLORS.WHITE : theme.COLORS.ICON}
+          leftIconSize={28}
           titleStyle={[
             styles.title,
             { color: theme.COLORS[white ? 'WHITE' : 'ICON'] },

@@ -41,56 +41,56 @@ export default class SignIn extends React.Component {
         colors={['#6C24AA', '#15002B']}
         style={[styles.signin, {flex: 1, paddingTop: theme.SIZES.BASE * 4}]}>
         <Block flex middle>
-          <KeyboardAvoidingView behavior="padding" enabled>
+          {/*<KeyboardAvoidingView behavior="padding" enabled>*/}
             <Block middle>
               <Block row center space="between" style={{ marginVertical: theme.SIZES.BASE * 1.875 }}>
-                <Block flex middle right>
-                  <Button
-                    round
-                    onlyIcon
-                    iconSize={theme.SIZES.BASE * 1.625}
-                    icon="facebook"
-                    iconFamily="font-awesome"
-                    color={theme.COLORS.FACEBOOK}
-                    shadowless
-                    iconColor={theme.COLORS.WHITE}
-                    style={styles.social}
-                    onPress={() => Alert.alert('Not implemented')}
-                  />
-                </Block>
-                <Block flex middle center>
-                  <Button
-                    round
-                    onlyIcon
-                    iconSize={theme.SIZES.BASE * 1.625}
-                    icon="twitter"
-                    iconFamily="font-awesome"
-                    color={theme.COLORS.TWITTER}
-                    shadowless
-                    iconColor={theme.COLORS.WHITE}
-                    style={styles.social}
-                    onPress={() => Alert.alert('Not implemented')}
-                  />
-                </Block>
-                <Block flex middle left>
-                  <Button
-                    round
-                    onlyIcon
-                    iconSize={theme.SIZES.BASE * 1.625}
-                    icon="dribbble"
-                    iconFamily="font-awesome"
-                    color={theme.COLORS.DRIBBBLE}
-                    shadowless
-                    iconColor={theme.COLORS.WHITE}
-                    style={styles.social}
-                    onPress={() => Alert.alert('Not implemented')}
-                  />
-                </Block>
+                {/*<Block flex middle right>*/}
+                {/*  <Button*/}
+                {/*    round*/}
+                {/*    onlyIcon*/}
+                {/*    iconSize={theme.SIZES.BASE * 1.625}*/}
+                {/*    icon="facebook"*/}
+                {/*    iconFamily="font-awesome"*/}
+                {/*    color={theme.COLORS.FACEBOOK}*/}
+                {/*    shadowless*/}
+                {/*    iconColor={theme.COLORS.WHITE}*/}
+                {/*    style={styles.social}*/}
+                {/*    onPress={() => Alert.alert('Not implemented')}*/}
+                {/*  />*/}
+                {/*</Block>*/}
+                {/*<Block flex middle center>*/}
+                {/*  <Button*/}
+                {/*    round*/}
+                {/*    onlyIcon*/}
+                {/*    iconSize={theme.SIZES.BASE * 1.625}*/}
+                {/*    icon="twitter"*/}
+                {/*    iconFamily="font-awesome"*/}
+                {/*    color={theme.COLORS.TWITTER}*/}
+                {/*    shadowless*/}
+                {/*    iconColor={theme.COLORS.WHITE}*/}
+                {/*    style={styles.social}*/}
+                {/*    onPress={() => Alert.alert('Not implemented')}*/}
+                {/*  />*/}
+                {/*</Block>*/}
+                {/*<Block flex middle left>*/}
+                {/*  <Button*/}
+                {/*    round*/}
+                {/*    onlyIcon*/}
+                {/*    iconSize={theme.SIZES.BASE * 1.625}*/}
+                {/*    icon="dribbble"*/}
+                {/*    iconFamily="font-awesome"*/}
+                {/*    color={theme.COLORS.DRIBBBLE}*/}
+                {/*    shadowless*/}
+                {/*    iconColor={theme.COLORS.WHITE}*/}
+                {/*    style={styles.social}*/}
+                {/*    onPress={() => Alert.alert('Not implemented')}*/}
+                {/*  />*/}
+                {/*</Block>*/}
               </Block>
             </Block>
-            <Block middle style={{ paddingVertical: theme.SIZES.BASE * 2.625}}>
-              <Text center color="white" size={14}>
-                or be classical
+            <Block middle style={{ paddingVertical: theme.SIZES.BASE * 2.625, marginLeft: 10, marginRight: 10}}>
+              <Text center color="white" size={34}>
+                Central Monitoring System
               </Text>
             </Block>
             <Block flex>
@@ -106,7 +106,7 @@ export default class SignIn extends React.Component {
                   onFocus={() => this.toggleActive('email')}
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   onChangeText={text => this.handleChange('email', text)}
-                  style={[styles.input, this.state.active.email ? styles.inputActive : null]}
+                  style={[styles.input, this.state.active.email ? styles.inputActive : null], {width: width / 1.2}}
                 />
                 <Input
                   password
@@ -120,28 +120,21 @@ export default class SignIn extends React.Component {
                   onFocus={() => this.toggleActive('password')}
                   placeholderTextColor={materialTheme.COLORS.PLACEHOLDER}
                   onChangeText={text => this.handleChange('password', text)}
-                  style={[styles.input, this.state.active.password ? styles.inputActive : null]}
+                  style={[styles.input, this.state.active.password ? styles.inputActive : null], {width: width/1.2 }}
                 />
-                <Text
-                  color={theme.COLORS.WHITE}
-                  size={theme.SIZES.FONT * 0.75}
-                  onPress={() => Alert.alert('Not implemented')}
-                  style={{ alignSelf: 'flex-end', lineHeight: theme.SIZES.FONT * 2 }}
-                >
-                  Forgot your password?
-                  </Text>
+
               </Block>
               <Block center flex style={{ marginTop: 20 }}>
                 <Button
                   size="large"
                   shadowless
                   color={materialTheme.COLORS.BUTTON_COLOR}
-                  style={{ height: 48 }}
-                  onPress={() => Alert.alert('Sign in action',`Email: ${email} Password: ${password}`,)}
+                  style={{ height: 48, width: width/1.2 }}
+                  onPress={() => navigation.navigate('App')}
                 >
                   SIGN IN
                 </Button>
-                <Button size="large" color="transparent" shadowless onPress={() => navigation.navigate('Sign Up')}>
+                <Button size="large" color="transparent" shadowless onPress={() => alert("Funcționalitatea nu este implementată în versiunea Demo")}>
                   <Text
                     center
                     color={theme.COLORS.WHITE}
@@ -153,7 +146,7 @@ export default class SignIn extends React.Component {
                 </Button>
               </Block>
             </Block>
-          </KeyboardAvoidingView>
+          {/*</KeyboardAvoidingView>*/}
         </Block>
       </LinearGradient>
     );
@@ -161,7 +154,7 @@ export default class SignIn extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  signin: {        
+  signin: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
   },
   social: {
@@ -178,7 +171,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1
   },
   input: {
-    width: width * 0.9, 
+    width: width * 0.9,
     borderRadius: 0,
     borderBottomWidth: 1,
     borderBottomColor: materialTheme.COLORS.PLACEHOLDER,

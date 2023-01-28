@@ -18,11 +18,13 @@ const { width } = Dimensions.get("screen");
 
 const profile = {
   avatar: Images.Profile,
-  name: "Rachel Brown",
-  type: "Seller",
+  name: "Mega Image Mosilor",
+  type: "Calea Moșilor 207, București 030167",
   plan: "Pro",
   rating: 4.8
 };
+
+const MegaLogo = require('../assets/images/mega-logo.png');
 
 function CustomDrawerContent({
   drawerPosition,
@@ -34,26 +36,23 @@ function CustomDrawerContent({
 }) {
   const insets = useSafeArea();
   const screens = [
-    "Home",
-    "Woman",
-    "Man",
-    "Kids",
-    "New Collection",
-    "Profile",
-    "Settings",
-    "Components"
+    "Obiectivul Meu",
+    "Control Securitate",
+
+    "Profil",
+    "Setări",
   ];
   return (
     <Block
       style={styles.container}
       forceInset={{ top: "always", horizontal: "never" }}
     >
-      <Block flex={0.23} style={styles.header}>
+      <Block style={styles.header}>
         <TouchableWithoutFeedback
-          onPress={() => navigation.navigate("Profile")}
+          onPress={() => navigation.navigate("Profil")}
         >
           <Block style={styles.profile}>
-            <Image source={{ uri: profile.avatar }} style={styles.avatar} />
+            <Image source={MegaLogo} style={styles.avatar} />
             <Text h5 color={"white"}>
               {profile.name}
             </Text>
@@ -61,17 +60,17 @@ function CustomDrawerContent({
         </TouchableWithoutFeedback>
         <Block row>
           <Block middle style={styles.pro}>
-            <Text size={16} color="white">
+            <Text size={14} color="white">
               {profile.plan}
             </Text>
           </Block>
-          <Text size={16} muted style={styles.seller}>
+          <Text size={14} muted style={styles.seller}>
             {profile.type}
           </Text>
-          <Text size={16} color={materialTheme.COLORS.WARNING}>
-            {profile.rating}{" "}
-            <Icon name="shape-star" family="GalioExtra" size={14} />
-          </Text>
+          {/*<Text size={16} color={materialTheme.COLORS.WARNING}>*/}
+          {/*  {profile.rating}{" "}*/}
+          {/*  <Icon name="shape-star" family="GalioExtra" size={14} />*/}
+          {/*</Text>*/}
         </Block>
       </Block>
       <Block flex style={{ paddingLeft: 7, paddingRight: 14 }}>
@@ -97,18 +96,6 @@ function CustomDrawerContent({
           })}
         </ScrollView>
       </Block>
-      <Block flex={0.25} style={{ paddingLeft: 7, paddingRight: 14 }}>
-        <DrawerCustomItem
-          title="Sign In"
-          navigation={navigation}
-          focused={state.index === 8 ? true : false}
-        />
-        <DrawerCustomItem
-          title="Sign Up"
-          navigation={navigation}
-          focused={state.index === 9 ? true : false}
-        />
-      </Block>
     </Block>
   );
 }
@@ -132,9 +119,9 @@ const styles = StyleSheet.create({
     marginBottom: theme.SIZES.BASE / 2
   },
   avatar: {
-    height: 40,
-    width: 40,
-    borderRadius: 20,
+    height: 60,
+    width: 60,
+    borderRadius: 10,
     marginBottom: theme.SIZES.BASE
   },
   pro: {

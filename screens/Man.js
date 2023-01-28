@@ -23,7 +23,7 @@ export default class Man extends React.Component {
       />
     )
   }
-  
+
   renderTabs = () => {
     const { navigation } = this.props;
 
@@ -74,7 +74,7 @@ export default class Man extends React.Component {
 
 const styles = StyleSheet.create({
   home: {
-    width: width,    
+    width: width,
   },
   search: {
     height: 48,
