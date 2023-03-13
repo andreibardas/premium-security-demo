@@ -39,8 +39,10 @@ const Drawer = createDrawerNavigator();
 
 const profile = {
   avatar: Images.Profile,
-  name: "Mega Image Mosilor",
-  type: "Calea Moșilor 207, București 030167",
+  name: "Premium Security",
+    username: "premium.security32",
+  email: "contact@premium-security.com",
+  phone: "+40 747 950 028",
   plan: "Pro",
   rating: 4.8,
 };

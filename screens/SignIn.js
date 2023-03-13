@@ -1,12 +1,15 @@
 import React from 'react';
-import { StyleSheet, Dimensions, KeyboardAvoidingView, Alert, Platform } from 'react-native';
+import {StyleSheet, Dimensions, KeyboardAvoidingView, Alert, Platform, Image} from 'react-native';
 import { Block, Button, Input, Text, theme } from 'galio-framework';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { materialTheme } from '../constants/';
 import { HeaderHeight } from "../constants/utils";
+// import OnboardingImage from "../assets/cms/logo.png";
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+
+const OnboardingImage = require('../assets/cms/logo.png');
 
 export default class SignIn extends React.Component {
   state = {
@@ -36,9 +39,9 @@ export default class SignIn extends React.Component {
     return (
       <LinearGradient
         start={{ x: 0, y: 0 }}
-        end={{ x: 0.25, y: 1.1 }}
+        end={{ x: 0.55, y: 2.1 }}
         locations={[0.2, 1]}
-        colors={['#6C24AA', '#15002B']}
+        colors={['#000', '#1EA8FF']}
         style={[styles.signin, {flex: 1, paddingTop: theme.SIZES.BASE * 4}]}>
         <Block flex middle>
           {/*<KeyboardAvoidingView behavior="padding" enabled>*/}
@@ -89,9 +92,10 @@ export default class SignIn extends React.Component {
               </Block>
             </Block>
             <Block middle style={{ paddingVertical: theme.SIZES.BASE * 2.625, marginLeft: 10, marginRight: 10}}>
-              <Text center color="white" size={34}>
-                Central Monitoring System
-              </Text>
+              <Image
+                  source={OnboardingImage}
+                  style={{ width: 100, height: 120, zIndex: 1 }}
+              />
             </Block>
             <Block flex>
               <Block center>
@@ -134,16 +138,16 @@ export default class SignIn extends React.Component {
                 >
                   SIGN IN
                 </Button>
-                <Button size="large" color="transparent" shadowless onPress={() => alert("Funcționalitatea nu este implementată în versiunea Demo")}>
-                  <Text
-                    center
-                    color={theme.COLORS.WHITE}
-                    size={theme.SIZES.FONT * 0.75}
-                    style={{marginTop:20}}
-                  >
-                    {"Don't have an account? Sign Up"}
-                  </Text>
-                </Button>
+                {/*<Button size="large" color="transparent" shadowless onPress={() => alert("Funcționalitatea nu este implementată în versiunea Demo")}>*/}
+                {/*  <Text*/}
+                {/*    center*/}
+                {/*    color={theme.COLORS.WHITE}*/}
+                {/*    size={theme.SIZES.FONT * 0.75}*/}
+                {/*    style={{marginTop:20}}*/}
+                {/*  >*/}
+                {/*    {"Don't have an account? Sign Up"}*/}
+                {/*  </Text>*/}
+                {/*</Button>*/}
               </Block>
             </Block>
           {/*</KeyboardAvoidingView>*/}

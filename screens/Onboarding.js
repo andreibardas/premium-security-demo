@@ -9,7 +9,7 @@ import materialTheme from '../constants/Theme';
 import Images from '../constants/Images';
 import {normalize} from "../utils/responsive";
 
-const OnboardingImage = require('../assets/images/onboarding.png');
+const OnboardingImage = require('../assets/cms/logo.png');
 
 
 export default class Onboarding extends React.Component {
@@ -40,19 +40,19 @@ export default class Onboarding extends React.Component {
               </Block>
               <Block row>
                 <Text color="white" size={48}>System</Text>
-                <Block middle style={styles.pro}>
-                  <Text size={15} color="white">Demo</Text>
-                </Block>
+                {/*<Block middle style={styles.pro}>*/}
+                {/*  <Text size={15} color="white">Demo</Text>*/}
+                {/*</Block>*/}
               </Block>
             </Block>
             <Block style={{ paddingHorizontal: theme.SIZES.BASE * 2,  zIndex: 3 }}>
               <Text size={14} color='rgba(255,255,255,0.6)'>
-                Această aplicație reprezintă un Demo creat de echipa de dezvoltare Yuriesoft.
+                Această aplicație este destinată generării de rapoarte și aparține companiei C.M.S.
               </Text>
             </Block>
             <Block style={{ paddingHorizontal: theme.SIZES.BASE * 2,  zIndex: 3, }}>
               <Text size={14} color='rgba(255,255,255,0.6)'>
-                Datele introduse în aplicație nu sunt salvate iar aplicația nu este destinată uzului comercial.
+                &#169; 2023 Central Monitoring System
               </Text>
             </Block>
           </Block>

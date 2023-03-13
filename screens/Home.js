@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Dimensions, ScrollView, View } from 'react-native';
 import { Block, Text, Input, theme, Button } from 'galio-framework';
 import { BarChart, Grid } from 'react-native-svg-charts'
@@ -11,9 +11,46 @@ import { PieChart } from 'react-native-svg-charts'
 import { Text as SvgText } from 'react-native-svg'
 import {materialTheme} from "../constants";
 
-export default class Home extends React.Component {
-  renderSearch = () => {
-    const { navigation } = this.props;
+import * as Location from "expo-location"
+import {Accuracy} from "expo-location";
+
+const Home = (props) => {
+
+  const [location, setLocation] = useState({})
+  const [loading, setLoading] = useState(false)
+
+  const getMyLocation = () => {
+    (async() => {
+      let {status} = await Location.requestForegroundPermissionsAsync()
+
+      if (status === 'granted') {
+        console.log('Permission successful')
+      } else {
+        console.log("Permission not granted")
+      }
+
+      // const loc = await Location.getCurrentPositionAsync()
+
+      setLoading(true)
+
+      const loc = await Location.getCurrentPositionAsync({
+        accuracy: Accuracy.High,
+      })
+
+      console.log(loc)
+
+      setLocation(loc)
+
+      setLoading(false)
+    })()
+  }
+
+  useEffect(() => {
+    getMyLocation();
+  }, [])
+
+  const renderSearch = () => {
+    const { navigation } = props;
     const iconContent = <Icon size={16} color={theme.COLORS.MUTED} name="zoom-in" family="material" />
 
     return (
@@ -28,8 +65,8 @@ export default class Home extends React.Component {
     )
   }
 
-  renderTabs = () => {
-    const { navigation } = this.props;
+  const renderTabs = () => {
+    const { navigation } = props;
 
     return (
       <Block row style={styles.tabs}>
@@ -49,7 +86,7 @@ export default class Home extends React.Component {
     )
   }
 
-  renderProducts = () => {
+  const renderProducts = () => {
 
 
     const chartConfig = {
@@ -234,13 +271,14 @@ export default class Home extends React.Component {
     )
   }
 
-  render() {
+
     return (
       <Block flex center style={styles.home}>
-        {this.renderProducts()}
+        <Button onPress={() => getMyLocation()}><Text>update location</Text></Button>
+        <Text>{ loading ? "Loading..." :  JSON.stringify(location)}</Text>
+        {renderProducts()}
       </Block>
     );
-  }
 }
 
 const styles = StyleSheet.create({
@@ -292,3 +330,6 @@ const styles = StyleSheet.create({
     paddingVertical: theme.SIZES.BASE * 2,
   },
 });
+
+
+export default Home;

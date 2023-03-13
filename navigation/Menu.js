@@ -18,8 +18,8 @@ const { width } = Dimensions.get("screen");
 
 const profile = {
   avatar: Images.Profile,
-  name: "Mega Image Mosilor",
-  type: "Calea Moșilor 207, București 030167",
+  name: "Premium Security",
+  type: "contact@premium-security.com",
   plan: "Pro",
   rating: 4.8
 };
@@ -38,7 +38,6 @@ function CustomDrawerContent({
   const screens = [
     "Obiectivul Meu",
     "Control Securitate",
-
     "Profil",
     "Setări",
   ];
@@ -52,25 +51,26 @@ function CustomDrawerContent({
           onPress={() => navigation.navigate("Profil")}
         >
           <Block style={styles.profile}>
-            <Image source={MegaLogo} style={styles.avatar} />
-            <Text h5 color={"white"}>
+            {/*<Image source={MegaLogo} style={styles.avatar} />*/}
+            <Text h5 color={"black"}>
               {profile.name}
             </Text>
           </Block>
         </TouchableWithoutFeedback>
         <Block row>
-          <Block middle style={styles.pro}>
-            <Text size={14} color="white">
-              {profile.plan}
-            </Text>
-          </Block>
           <Text size={14} muted style={styles.seller}>
-            {profile.type}
+            {profile.username}
           </Text>
-          {/*<Text size={16} color={materialTheme.COLORS.WARNING}>*/}
-          {/*  {profile.rating}{" "}*/}
-          {/*  <Icon name="shape-star" family="GalioExtra" size={14} />*/}
-          {/*</Text>*/}
+        </Block>
+        <Block row>
+          <Text size={14} muted style={styles.seller}>
+            {profile.email}
+          </Text>
+        </Block>
+        <Block row>
+          <Text size={14} muted style={styles.seller}>
+            {profile.phone}
+          </Text>
         </Block>
       </Block>
       <Block flex style={{ paddingLeft: 7, paddingRight: 14 }}>
@@ -105,9 +105,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    backgroundColor: "#4B1958",
+    backgroundColor: "#fff",
     paddingHorizontal: 28,
-    paddingBottom: theme.SIZES.BASE,
+    paddingBottom: theme.SIZES.BASE * 2,
     paddingTop: theme.SIZES.BASE * 2,
     justifyContent: "center"
   },

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "central-monitoring-system-demo",
-    "description": "Central Monitoring System Demo",
+    "name": "central-monitoring-system",
+    "description": "Central Monitoring System",
     "slug": "central-monitoring-system",
     "privacy": "unlisted",
     "platforms": [
